@@ -1,11 +1,11 @@
 const React = require('react')
+const Default = require('../layouts/Default')
 
 class Index extends React.Component {
     render() {
         const { pokemons } = this.props
         return (
-            <>
-                <h1>PokeExpress</h1>
+            <Default>
                 <ul>
                     {
                         pokemons.map((pokemon) => {
@@ -21,7 +21,7 @@ class Index extends React.Component {
                         })
                     }
                 </ul>
-            </>
+            </Default>
         )
     }
 }

@@ -1,9 +1,11 @@
 const React = require('react')
+const Default = require('../layouts/Default')
+
 
 class New extends React.Component{
     render(){
         return(
-            <>
+            <Default>
             <body>
                 <form method='POST' action='/pokemons'>
                     Name:<input name='name'></input><br/>
@@ -11,7 +13,7 @@ class New extends React.Component{
                     <input type='submit'></input>
                 </form>
             </body>
-            </>
+            </Default>
         )
     }
 

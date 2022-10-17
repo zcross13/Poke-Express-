@@ -12,10 +12,11 @@ router.get('/new', viewController.new)
 // Delete(Destroy)
 router.delete('/:id', dataController.delete, viewController.redirectHome)
 // Update
+router.put('/:id', dataController.update, viewController.redirectShow )
 // Create
 router.post('/', dataController.create, viewController.redirectHome)
 // Edit
-router.get('/:id', dataController.grabPokemon, viewController.edit)
+router.get('/:id/edit', dataController.grabPokemon, viewController.edit)
 // Show
 router.get('/:id', dataController.grabPokemon, viewController.show)
 

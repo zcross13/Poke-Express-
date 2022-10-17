@@ -31,7 +31,17 @@ const dataController = {
     }, 
 // Update
     update(req,res,next){
-
+        Pokemon.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedPokemon) => {
+            if(err){
+                console.error(err)
+                res.status(400).send({
+                    msg:err.message
+                })
+            } else {
+                res.locals.data.pokemon = updatedPokemon
+                next()
+            }
+        })
     },
 // Create
     create(req,res,next){
@@ -50,19 +60,18 @@ const dataController = {
 // Edit
 // Show
     grabPokemon(req,res,next){
-        Pokemon.findById(req.params.id, (err, foundPokemon) =>{
-            if(err){
-                console.error(err)
-                res.status(404).send({
-                    msg: err.message,
-                    output: 'Could not find a Pokemon with that ID'
-                })
-            } else {
-                res.locals.data.pokemon = foundPokemon
-                next()
-            }
-        })
-    }, 
+    Pokemon.findById(req.params.id, (err, foundPokemon) => {
+        if(err){
+            res.status(404).send({
+                msg: err.message,
+                output: 'Could not find log with that ID'
+            })
+        } else {
+            res.locals.data.pokemon = foundPokemon
+            next()
+        }
+    })
+}
 }
 
 module.exports = dataController 

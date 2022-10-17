@@ -15,7 +15,7 @@ const viewController = {
     },
 // Show
     show(req, res, next){
-        res.render(`pokemons/Show`, res.locals.data)
+        res.render('pokemons/Show', res.locals.data)
     }, 
 // redirect Home 
     redirectHome(req, res, next){
