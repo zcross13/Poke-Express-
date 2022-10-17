@@ -14,6 +14,7 @@ router.get('/new', viewController.new)
 // Create
 router.post('/', dataController.create, viewController.redirectHome)
 // Edit
+router.get('/:id', dataController.grabPokemon, viewController.edit)
 // Show
 router.get('/:id', dataController.grabPokemon, viewController.show)
 

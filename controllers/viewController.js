@@ -10,6 +10,9 @@ const viewController = {
         res.render('pokemons/New')
     }, 
 // Edit
+    edit(req,res,next){
+        res.render('pokemons/Edit', res.locals.data)
+    },
 // Show
     show(req, res, next){
         res.render(`pokemons/Show`, res.locals.data)
@@ -17,8 +20,11 @@ const viewController = {
 // redirect Home 
     redirectHome(req, res, next){
         res.redirect(RESOURCE_PATH)
-    }
+    },
 // redirect Show 
+    redirectShow(req,res, next){
+        res.redirect(`${RESOURCE_PATH}/${req.params.id}`)
+    }
 }
 
 module.exports = viewController
