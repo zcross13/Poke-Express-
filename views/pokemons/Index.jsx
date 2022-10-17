@@ -1,18 +1,21 @@
 const React = require('react')
 
-class Index extends React.Component{
-    render(){
-        const {pokemons} = this.props 
-        return(
+class Index extends React.Component {
+    render() {
+        const { pokemons } = this.props
+        return (
             <>
                 <h1>PokeExpress</h1>
                 <ul>
                     {
-                        pokemons.map((pokemon) =>{
-                            const{name, image, _id} = pokemon
-                            return(
+                        pokemons.map((pokemon) => {
+                            const { name, image, _id } = pokemon
+                            return (
                                 <li key={pokemon._id}>
                                     <a href={`/pokemons/${pokemon._id}`}>{name}</a>
+                                    <form method='POST' action={`/pokemons/${pokemon._id}?_method=DELETE`}>
+                                        <input type='submit' value={`Delete ${name}`}/>
+                                    </form>
                                 </li>
                             )
                         })

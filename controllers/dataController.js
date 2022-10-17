@@ -17,7 +17,17 @@ const dataController = {
     },
 // Delete(Destroy)
     delete(req,res,next){
-
+        Pokemon.findByIdAndDelete(req.params.id, (err, deletedPokemon) => {
+            if(err){
+                console.error(err)
+                res.status(400).send({
+                    msg: err.message
+                })
+            } else {
+                res.locals.data.pokemon = deletedPokemon
+                next()
+            }
+        })
     }, 
 // Update
     update(req,res,next){
