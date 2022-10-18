@@ -8,7 +8,7 @@ const viewController = require('./viewController')
 // Index 
 router.get('/', dataController.index, viewController.index)
 // New 
-router.get('/new', viewController.new)
+router.get('/new', viewController.newView)
 // Delete(Destroy)
 router.delete('/:id', dataController.delete, viewController.redirectHome)
 // Update

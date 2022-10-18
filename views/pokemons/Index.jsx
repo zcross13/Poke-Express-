@@ -5,7 +5,8 @@ class Index extends React.Component {
     render() {
         const { pokemons } = this.props
         return (
-            <Default>
+            <Default title= 'Poke Express'>
+                <div id='pokemons'>
                 <ul>
                     {
                         pokemons.map((pokemon) => {
@@ -21,6 +22,7 @@ class Index extends React.Component {
                         })
                     }
                 </ul>
+                </div>
             </Default>
         )
     }

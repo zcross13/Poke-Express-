@@ -2,8 +2,8 @@ require('dotenv').config()
 
 //Require Modules 
 const express = require('express')
-const mongoose = require('mongoose')
 const methodOverride = require('method-override')
+const db = require('./models/db')
 
 const app = express ()
 
@@ -16,9 +16,8 @@ app.use((req,res,next) => {
 })
 app.engine('jsx', require('jsx-view-engine').createEngine())
 app.set('view engine', 'jsx')
-mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true})
-mongoose.connection.once('open', () => {
-    console.log('connect to mongo')
+db.once('open', () => {
+    console.log('connected to Mongo')
 })
 /* END CONFIG */
 
@@ -31,6 +30,6 @@ app.use('/pokemons', require('./controllers/routeController'))
 
 
 
-app.listen(3000, () => {
+app.listen(3000, () => { 
     console.log('Listening on Port 3000')
 })

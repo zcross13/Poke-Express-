@@ -2,11 +2,11 @@ const RESOURCE_PATH = '/pokemons'
 
 const viewController = {
 // Index 
-    index(req,res, next){
+    index(req,res,next){
         res.render('pokemons/Index', res.locals.data)
     },
 // New 
-    new(req,res,next){
+    newView(req,res,next){
         res.render('pokemons/New')
     }, 
 // Edit

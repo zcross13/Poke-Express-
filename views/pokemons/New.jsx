@@ -5,7 +5,7 @@ const Default = require('../layouts/Default')
 class New extends React.Component{
     render(){
         return(
-            <Default>
+            <Default title='Create A Ticket'>
             <body>
                 <form method='POST' action='/pokemons'>
                     Name:<input name='name'></input><br/>

@@ -6,12 +6,10 @@ class Show extends React.Component {
     render() {
         const { name, image, _id } = this.props.pokemon
         return (
-            <Default>
-                <a href={`/pokemons/${_id}/edit`}>{`Edit ${name}`}</a>
-                <p>{name} 
-                <br />
-                <img src={image}></img>
-                </p>
+            <Default title={`${name} Show Page`} pokemon={this.props.pokemon}>
+                <div id='image'>
+                    <img src={image}></img>
+                </div>
             </Default>
         )
     }
